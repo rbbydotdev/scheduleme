@@ -1,0 +1,7 @@
+tmp
+*.ignore.*
+.DS_Store
+vendor
+.env
+scheduleme.db*
+.mig.lock
