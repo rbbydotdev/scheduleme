@@ -1,7 +1,7 @@
 package config
 
 import (
-	"log"
+	"fmt"
 	"net/url"
 	"os"
 	"scheduleme/util"
@@ -49,7 +49,7 @@ func ConfigFromEnv() *ConfigStruct {
 func getPath(rawurl string) string {
 	u, err := url.Parse(rawurl)
 	if err != nil {
-		log.Fatal(err)
+		panic(fmt.Sprintf("bad url=%s err=%v", rawurl, err))
 	}
 	return u.Path
 }
@@ -57,7 +57,7 @@ func mustGetEnv(key string) string {
 	if value, exists := os.LookupEnv(key); exists {
 		return value
 	}
-	panic("env var " + key + " not found")
+	panic(fmt.Sprintf("env var=%s not found", key))
 }
 func getEnv(key string, defV string) string {
 	if value, exists := os.LookupEnv(key); exists {
