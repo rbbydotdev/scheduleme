@@ -15,17 +15,16 @@ func RunMain() string {
 }
 
 // Runs http routed services on config.Port returns the address string
-// Convenience function for testing
 func Run(cfg *config.ConfigStruct, db *sqlite.Db) string {
 	var err error
+	if cfg == nil {
+		cfg = config.InitConfig()
+	}
 	if db == nil {
 		db, err = sqlite.NewOpenDB(cfg.Dsn)
 		if err != nil {
 			log.Fatal(err)
 		}
-	}
-	if cfg == nil {
-		cfg = config.InitConfig()
 	}
 	topSvc := services.TopServices(cfg, db)
 	topRte := services.TopRoutes(topSvc)
