@@ -5,7 +5,6 @@ import (
 	"net/url"
 	"os"
 	"scheduleme/util"
-	"strings"
 )
 
 type ConfigStruct struct {
@@ -20,11 +19,17 @@ type ConfigStruct struct {
 }
 type ENV string
 
+const (
+	EnvDev  ENV = "dev"
+	EnvProd ENV = "prod"
+)
+
 func (e ENV) IsDev() bool {
-	return strings.ToLower(string(e)) == "dev"
+	return e == EnvDev
 }
+
 func (e ENV) IsProd() bool {
-	return strings.ToLower(string(e)) == "prod"
+	return e == EnvProd
 }
 
 func ConfigFromEnv() *ConfigStruct {
