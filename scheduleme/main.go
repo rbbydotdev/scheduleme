@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"fmt"
+	"log"
 	"os"
 	"scheduleme/server"
 	// "scheduleme/seeds"
@@ -11,7 +11,7 @@ import (
 func main() {
 	// config.InitConfig()
 	if len(os.Args) < 2 {
-		fmt.Println("no command provided")
+		log.Println("no command provided")
 		os.Exit(2)
 	}
 
@@ -46,7 +46,7 @@ func main() {
 		server.RunMain()
 
 	default:
-		fmt.Printf("%q is not valid command.\n", os.Args[1])
+		log.Printf("%q is not valid command.\n", os.Args[1])
 		os.Exit(2)
 	}
 	os.Exit(0)

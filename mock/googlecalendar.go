@@ -2,8 +2,8 @@ package mock
 
 import (
 	"context"
-	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"scheduleme/models"
 	"scheduleme/values"
@@ -88,7 +88,7 @@ func (cf *ClientFunc) GetRequest(index int) *http.Request {
 	if index < len(cf.ReqStore) {
 		return cf.ReqStore[index]
 	}
-	fmt.Println("Request not found for index:", index)
+	log.Println("Request not found for index:", index)
 	return nil
 }
 

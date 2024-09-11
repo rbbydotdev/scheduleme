@@ -67,7 +67,6 @@ func getEnv(key string, defV string) string {
 }
 
 func InitConfig() *ConfigStruct {
-	println("Initializing config from env vars...")
 	cfg := ConfigFromEnv()
 	return cfg
 }

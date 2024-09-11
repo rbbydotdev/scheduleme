@@ -1,7 +1,7 @@
 package values_test
 
 import (
-	"fmt"
+	"log"
 	"scheduleme/values"
 	"testing"
 	"time"
@@ -20,7 +20,7 @@ func TestSlots(t *testing.T) {
 	}
 
 	for _, ds := range dateSlots {
-		fmt.Printf("%+v\n", ds)
+		log.Printf("%+v\n", ds)
 	}
 	// Assuming DateSlots is a slice of DateSlot
 	// And DateSlot is a struct with Start and End time.Time fields

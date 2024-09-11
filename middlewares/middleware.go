@@ -2,7 +2,6 @@ package middlewares
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 	"scheduleme/frame"
@@ -67,7 +66,7 @@ func (m *Middlewares) PrintDebugSession(r *http.Request) {
 	if err != nil {
 		log.Fatalf("JSON marshaling failed: %s", err)
 	}
-	fmt.Printf("%s\n", bytes)
+	log.Printf("%s\n", bytes)
 }
 
 //TODO flash and redirect url should probably be taken out of session stored in context in possibly another middleware function

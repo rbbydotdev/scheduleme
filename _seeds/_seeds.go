@@ -1,7 +1,7 @@
 package seeds
 
 import (
-	"fmt"
+	"log"
 	"scheduleme/config"
 	"scheduleme/models"
 	sq "scheduleme/sqlite"
@@ -58,7 +58,7 @@ func Seed(cfg *config.ConfigStruct) {
 	// config.SetConfigForTestingOnly(config.ConfigFromEnv())
 
 	db, err := sq.NewOpenDB(cfg.Dsn)
-	fmt.Printf("seeding dsn: %s\n", cfg.Dsn)
+	log.Printf("seeding dsn: %s\n", cfg.Dsn)
 	if err != nil {
 		panic(err)
 	}

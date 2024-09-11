@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"log"
 	"scheduleme/frame"
 	sq "scheduleme/sqlite"
 	"scheduleme/toerr"
@@ -167,7 +168,7 @@ func (es *EventService) EventsForUserRoute(ri *RouteInfo, ctx context.Context) (
 	}
 	//print user id of each event
 	for i := 0; i < len(*events); i++ {
-		fmt.Printf("event %v user id: %v\n", (*events)[i].ID, (*events)[i].UserID)
+		log.Printf("event %v user id: %v\n", (*events)[i].ID, (*events)[i].UserID)
 	}
 	ri.Events = *events
 	return
