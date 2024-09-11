@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function watch-go-tests() {
   if [[ $# -eq 0 ]]; then
     echo "Usage: watch-go-tests <path to test files>"
